@@ -1,0 +1,116 @@
+PUT sndcatalogue-sv
+{
+    "mappings": {
+      "study": {
+        "_source": {
+          "enabled": true
+        },
+        "properties": {
+		  "identifier": {
+            "type": "string"
+          },
+		  "guid": {
+            "type": "string",
+			"index": "no"
+          },
+		  "slug": {
+            "type": "string",
+			"index": "no"
+          },
+		  "title": {            
+			"type": "string",
+			"analyzer": "english",
+			"fields": {
+			  "raw": {
+				"type": "string",
+				"index": "not_analyzed"                 
+			  }
+		    }                       
+          },
+          "purpose": {
+			"type": "string",
+			"analyzer": "english",
+			"fields": {
+			  "raw": {
+				"type": "string",
+				"index": "not_analyzed"                 
+			  }
+		    }   
+		  },
+          "abstract": {
+			"type": "string",
+			"analyzer": "english",
+			"fields": {
+			  "raw": {
+				"type": "string",
+				"index": "not_analyzed"                 
+			  }
+		    }   
+		  },
+		  "pi": {
+			"type": "nested",
+			"properties": {
+			  "name": {
+			    "type": "string",
+				"analyzer": "english",
+				"fields": {
+				  "raw": {
+				    "type": "string",
+				    "index": "not_analyzed"                 
+			      }
+		        }   
+			  },
+			  "affiliation": {
+			    "type": "string",
+				"analyzer": "english",
+				"fields": {
+				  "raw": {
+				    "type": "string",
+				    "index": "not_analyzed"                 
+			      }
+		        }   
+			  },
+			  "orcid": {
+			    "type": "string"
+			  },
+			  "slug": {
+			    "type": "string",
+				"index": "no"
+			  },
+			  "url": {
+			    "type": "string",
+				"index": "no"
+			  },
+			  "email": {
+			    "type": "string",
+				"index": "no"
+			  }			  
+			}
+		  },
+		  "datakind": {
+			"type": "nested",
+			"properties": {
+			  "value": {
+			    "type": "string",
+				"analyzer": "english",
+				"fields": {
+				  "raw": {
+				    "type": "string",
+				    "index": "not_analyzed"                 
+			      }
+		        }   
+			  },			  
+			  "slug": {
+			    "type": "string",
+				"index": "no"
+			  },
+			  "id": {
+			    "type": "integer",
+				"index": "no"
+			  }
+			}
+		  }
+		}
+	  }
+	}
+} 
