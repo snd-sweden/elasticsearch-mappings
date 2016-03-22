@@ -1,4 +1,4 @@
-PUT sndcatalogue-sv
+PUT sndcatalogue-en
 {
     "mappings": {
       "study": {
