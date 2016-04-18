@@ -1,4 +1,4 @@
-PUT sndcatalogue-sv
+PUT sndcatalogue-en
 {
     "mappings": {
       "study": {
@@ -13,40 +13,70 @@ PUT sndcatalogue-sv
             "type": "string",
 			"index": "no"
           },
+		  "doi": {
+            "type": "string",
+			"index": "no"
+          },		  
 		  "slug": {
             "type": "string",
 			"index": "no"
           },
 		  "title": {            
 			"type": "string",
-			"analyzer": "swedish",
-			"fields": {
-			  "raw": {
-				"type": "string",
-				"index": "not_analyzed"                 
-			  }
-		    }                       
+			"analyzer": "swedish"                    
+          },
+		  "alternativetitle": {            
+			"type": "string",
+			"analyzer": "swedish"                     
           },
           "purpose": {
 			"type": "string",
-			"analyzer": "swedish",
-			"fields": {
-			  "raw": {
-				"type": "string",
-				"index": "not_analyzed"                 
-			  }
-		    }   
+			"analyzer": "swedish" 
 		  },
           "abstract": {
 			"type": "string",
-			"analyzer": "swedish",
-			"fields": {
-			  "raw": {
-				"type": "string",
-				"index": "not_analyzed"                 
-			  }
-		    }   
+			"analyzer": "swedish"
 		  },
+		  "kindofdata": {
+			"type": "nested",
+			"properties": {
+			  "value": {
+				"type": "string",
+				"analyzer": "swedish",
+				"fields": {
+				  "raw": {
+					"type": "string",
+					"index": "not_analyzed"                 
+				  }
+				}
+			  },			  
+			  "slug": {
+				"type": "string",
+				"index": "no"
+			  },
+			  "id": {
+				"type": "integer",
+				"index": "no"
+			  }
+			}
+		  },
+		  "series": {
+			"type": "nested",
+			"properties": {
+			  "title": {
+				"type": "string",
+				"analyzer": "swedish"
+			  },			  
+			  "slug": {
+				"type": "string",
+				"index": "no"
+			  },
+			  "id": {
+				"type": "integer",
+				"index": "no"
+			  }
+			}
+		  },		  
 		  "pi": {
 			"type": "nested",
 			"properties": {
@@ -70,6 +100,10 @@ PUT sndcatalogue-sv
 			      }
 		        }   
 			  },
+			  "pitype": {
+			    "type": "string",
+				"index": "no"
+			  },
 			  "orcid": {
 			    "type": "string"
 			  },
@@ -84,10 +118,10 @@ PUT sndcatalogue-sv
 			  "email": {
 			    "type": "string",
 				"index": "no"
-			  }			  
+			  }	  
 			}
 		  },
-		  "topic": {
+		  "subject": {
 			"type": "nested",
 			"properties": {
 			  "value": {
@@ -99,6 +133,10 @@ PUT sndcatalogue-sv
 				    "index": "not_analyzed"                 
 			      }
 		        }   
+			  },	
+			  "description": {
+			    "type": "string",
+				"analyzer": "swedish"
 			  },			  
 			  "slug": {
 			    "type": "string",
@@ -130,6 +168,10 @@ PUT sndcatalogue-sv
 				    "index": "not_analyzed"                 
 			      }
 		        }   
+			  },
+			  "description": {
+			    "type": "string",
+				"analyzer": "swedish"
 			  },			  
 			  "slug": {
 			    "type": "string",
@@ -152,11 +194,9 @@ PUT sndcatalogue-sv
 		  "timeperiod" : {
 			"type": "nested",
 			"properties" : {
-			  "single": {
-				"type": "date_optional_time"
-			  },
 			  "start": {
-			    "type": "date_optional_time",
+				"type": "date",
+			    "format": "date_optional_time"
 			  },
 			  "startera": {
 				"type": "nested",
@@ -182,7 +222,8 @@ PUT sndcatalogue-sv
 				}
 			  },
 			  "end": {
-				"type": "date_optional_time",
+				"type": "date",
+			    "format": "date_optional_time"
 			  },
 			  "endera": {
 				"type": "nested",
@@ -209,20 +250,19 @@ PUT sndcatalogue-sv
 			  },
 			  "ongoing": {
 				"type": "boolean"
-			  },
+			  }
 			}
 		  },
 		  "collectionevent" : {
 			"type": "nested",
 			"properties": {
-			  "single": {
-				"type": "date_optional_time"
-			  },
 			  "start": {
-			    "type": "date_optional_time",
+				"type": "date",
+			    "format": "date_optional_time"
 			  },
 			  "end": {
-				"type": "date_optional_time",
+				"type": "date",
+			    "format": "date_optional_time"
 			  },
 			  "modeofcollection": {
 				"type": "nested",
@@ -364,9 +404,18 @@ PUT sndcatalogue-sv
 			  }
 			}
 		  },
-		  "uri": {
-		    "type": "string",
-			"index": "no"
+		  "homepage": {
+			"type":"nested",
+			"properties": {
+				"uri":{
+					"type": "string",
+					"index": "no"
+				},
+				"label":{
+					"type": "string",
+					"index": "no"
+				}
+			}
 		  }
 		}
 	  }
