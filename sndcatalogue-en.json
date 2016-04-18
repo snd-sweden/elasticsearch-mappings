@@ -87,7 +87,169 @@ PUT sndcatalogue-en
 			  }			  
 			}
 		  },
-		  "datakind": {
+		  "topic": {
+			"type": "nested",
+			"properties": {
+			  "value": {
+			    "type": "string",
+				"analyzer": "english",
+				"fields": {
+				  "raw": {
+				    "type": "string",
+				    "index": "not_analyzed"                 
+			      }
+		        }   
+			  },			  
+			  "slug": {
+			    "type": "string",
+				"index": "no"
+			  },
+			  "id": {
+			    "type": "integer",
+				"index": "no"
+			  },
+			  "vocabulary": {
+				"type": "string",
+				"index": "no"
+			  },
+			  "uri": {
+				"type": "string",
+				"index": "no"
+			  }
+			}
+		  },
+		  "keyword": {
+			"type": "nested",
+			"properties": {
+			  "value": {
+			    "type": "string",
+				"analyzer": "english",
+				"fields": {
+				  "raw": {
+				    "type": "string",
+				    "index": "not_analyzed"                 
+			      }
+		        }   
+			  },			  
+			  "slug": {
+			    "type": "string",
+				"index": "no"
+			  },
+			  "id": {
+			    "type": "integer",
+				"index": "no"
+			  },
+			  "vocabulary": {
+				"type": "string",
+				"index": "no"
+			  },
+			  "uri": {
+				"type": "string",
+				"index": "no"
+			  }
+			}
+		  },
+		  "timeperiod" : {
+			"type": "nested",
+			"properties" : {
+			  "single": {
+				"type": "date_optional_time"
+			  },
+			  "start": {
+			    "type": "date_optional_time",
+			  },
+			  "startera": {
+				"type": "nested",
+				"properties": {
+				  "value": {
+			        "type": "string",
+					"analyzer": "english",
+					"fields": {
+					  "raw": {
+					    "type": "string",
+				        "index": "not_analyzed"                 
+			          }
+		            }
+				  },			  
+				  "slug": {
+					"type": "string",
+					"index": "no"
+				  },
+				  "id": {
+					"type": "integer",
+					"index": "no"
+				  }
+				}
+			  },
+			  "end": {
+				"type": "date_optional_time",
+			  },
+			  "endera": {
+				"type": "nested",
+				"properties": {
+				  "value": {
+			        "type": "string",
+					"analyzer": "english",
+					"fields": {
+					  "raw": {
+					    "type": "string",
+				        "index": "not_analyzed"                 
+			          }
+		            }
+				  },			  
+				  "slug": {
+					"type": "string",
+					"index": "no"
+				  },
+				  "id": {
+					"type": "integer",
+					"index": "no"
+				  }
+				}
+			  },
+			  "ongoing": {
+				"type": "boolean"
+			  },
+			}
+		  },
+		  "collectionevent" : {
+			"type": "nested",
+			"properties": {
+			  "single": {
+				"type": "date_optional_time"
+			  },
+			  "start": {
+			    "type": "date_optional_time",
+			  },
+			  "end": {
+				"type": "date_optional_time",
+			  },
+			  "modeofcollection": {
+				"type": "nested",
+				"properties": {
+				  "value": {
+			        "type": "string",
+					"analyzer": "english",
+					"fields": {
+					  "raw": {
+					    "type": "string",
+				        "index": "not_analyzed"                 
+			          }
+		            }
+				  },			  
+				  "slug": {
+					"type": "string",
+					"index": "no"
+				  },
+				  "id": {
+					"type": "integer",
+					"index": "no"
+				  }
+				}
+			  }
+			}
+		  },
+		  "studydesign": {
 			"type": "nested",
 			"properties": {
 			  "value": {
@@ -109,6 +271,102 @@ PUT sndcatalogue-en
 				"index": "no"
 			  }
 			}
+		  },
+		  "unitofanalysis": {
+			"type": "nested",
+			"properties": {
+			  "value": {
+			    "type": "string",
+				"analyzer": "english",
+				"fields": {
+				  "raw": {
+				    "type": "string",
+				    "index": "not_analyzed"                 
+			      }
+		        }   
+			  },			  
+			  "slug": {
+			    "type": "string",
+				"index": "no"
+			  },
+			  "id": {
+			    "type": "integer",
+				"index": "no"
+			  }
+			}
+		  },
+		  "universe": {
+			"type": "nested",
+			"properties": {
+			  "value": {
+			    "type": "string",
+				"analyzer": "english",
+				"fields": {
+				  "raw": {
+				    "type": "string",
+				    "index": "not_analyzed"                 
+			      }
+		        }   
+			  },			  
+			  "slug": {
+			    "type": "string",
+				"index": "no"
+			  },
+			  "id": {
+			    "type": "integer",
+				"index": "no"
+			  }
+			}
+		  },
+		  "samplingprocedure": {
+			"type": "nested",
+			"properties": {
+			  "value": {
+			    "type": "string",
+				"analyzer": "english",
+				"fields": {
+				  "raw": {
+				    "type": "string",
+				    "index": "not_analyzed"                 
+			      }
+		        }   
+			  },			  
+			  "slug": {
+			    "type": "string",
+				"index": "no"
+			  },
+			  "id": {
+			    "type": "integer",
+				"index": "no"
+			  }
+			}
+		  },
+		  "availabilitystatus": {
+			"type": "nested",
+			"properties": {
+			  "value": {
+			    "type": "string",
+				"analyzer": "english",
+				"fields": {
+				  "raw": {
+				    "type": "string",
+				    "index": "not_analyzed"                 
+			      }
+		        }   
+			  },			  
+			  "slug": {
+			    "type": "string",
+				"index": "no"
+			  },
+			  "id": {
+			    "type": "integer",
+				"index": "no"
+			  }
+			}
+		  },
+		  "uri": {
+		    "type": "string",
+			"index": "no"
 		  }
 		}
 	  }
