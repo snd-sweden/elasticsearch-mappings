@@ -103,6 +103,10 @@
 			    "type": "string",
 				"index": "no"
 			  },
+			  "role": {
+			    "type": "string",
+				"index": "no"
+			  },
 			  "orcid": {
 			    "type": "string"
 			  },
