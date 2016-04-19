@@ -67,21 +67,17 @@
   "timeperiod":[
     {
       "start":"1960-08-29",
-      "startera":[
-        {
+      "startera":{
           "value":"",
           "slug":"",
           "id":""
-        }
-      ],
+      },
       "end":"1960-10",
-      "endera":[
-        {
+      "endera":{
           "value":"",
           "slug":"",
           "id":""
-        }
-      ],
+      },
       "ongoing":false
     }
   ],
