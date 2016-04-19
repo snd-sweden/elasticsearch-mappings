@@ -20,6 +20,11 @@
           "type":"string",
           "index":"no"
         },
+		"updated":{
+		  "type":"date",
+		  "format":"date_optional_time",
+		  "index":"no"
+		},
         "title":{
           "type":"string",
           "analyzer":"english"
