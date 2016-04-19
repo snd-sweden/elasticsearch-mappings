@@ -1,426 +1,426 @@
 {
-    "mappings": {
-      "study": {
-        "_source": {
-          "enabled": true
+  "mappings":{
+    "study":{
+      "_source":{
+        "enabled":true
+      },
+      "properties":{
+        "identifier":{
+          "type":"string"
         },
-        "properties": {
-		  "identifier": {
-            "type": "string"
-          },
-		  "guid": {
-            "type": "string",
-			"index": "no"
-          },
-		  "doi": {
-            "type": "string",
-			"index": "no"
-          },		  
-		  "slug": {
-            "type": "string",
-			"index": "no"
-          },
-		  "title": {            
-			"type": "string",
-			"analyzer": "swedish"                    
-          },
-		  "alternativetitle": {            
-			"type": "string",
-			"analyzer": "swedish"                     
-          },
-          "purpose": {
-			"type": "string",
-			"analyzer": "swedish" 
-		  },
-          "abstract": {
-			"type": "string",
-			"analyzer": "swedish"
-		  },
-		  "kindofdata": {
-			"type": "nested",
-			"properties": {
-			  "value": {
-				"type": "string",
-				"analyzer": "swedish",
-				"fields": {
-				  "raw": {
-					"type": "string",
-					"index": "not_analyzed"                 
-				  }
-				}
-			  },			  
-			  "slug": {
-				"type": "string",
-				"index": "no"
-			  },
-			  "id": {
-				"type": "integer",
-				"index": "no"
-			  }
-			}
-		  },
-		  "series": {
-			"type": "nested",
-			"properties": {
-			  "title": {
-				"type": "string",
-				"analyzer": "swedish"
-			  },			  
-			  "slug": {
-				"type": "string",
-				"index": "no"
-			  },
-			  "id": {
-				"type": "integer",
-				"index": "no"
-			  }
-			}
-		  },		  
-		  "pi": {
-			"type": "nested",
-			"properties": {
-			  "name": {
-			    "type": "string",
-				"analyzer": "swedish",
-				"fields": {
-				  "raw": {
-				    "type": "string",
-				    "index": "not_analyzed"                 
-			      }
-		        }   
-			  },
-			  "affiliation": {
-			    "type": "string",
-				"analyzer": "swedish",
-				"fields": {
-				  "raw": {
-				    "type": "string",
-				    "index": "not_analyzed"                 
-			      }
-		        }   
-			  },
-			  "pitype": {
-			    "type": "string",
-				"index": "no"
-			  },
-			  "role": {
-			    "type": "string",
-				"index": "no"
-			  },
-			  "orcid": {
-			    "type": "string"
-			  },
-			  "slug": {
-			    "type": "string",
-				"index": "no"
-			  },
-			  "url": {
-			    "type": "string",
-				"index": "no"
-			  },
-			  "email": {
-			    "type": "string",
-				"index": "no"
-			  }	  
-			}
-		  },
-		  "subject": {
-			"type": "nested",
-			"properties": {
-			  "value": {
-			    "type": "string",
-				"analyzer": "swedish",
-				"fields": {
-				  "raw": {
-				    "type": "string",
-				    "index": "not_analyzed"                 
-			      }
-		        }   
-			  },	
-			  "description": {
-			    "type": "string",
-				"analyzer": "swedish"
-			  },			  
-			  "slug": {
-			    "type": "string",
-				"index": "no"
-			  },
-			  "id": {
-			    "type": "integer",
-				"index": "no"
-			  },
-			  "vocabulary": {
-				"type": "string",
-				"index": "no"
-			  },
-			  "uri": {
-				"type": "string",
-				"index": "no"
-			  }
-			}
-		  },
-		  "keyword": {
-			"type": "nested",
-			"properties": {
-			  "value": {
-			    "type": "string",
-				"analyzer": "swedish",
-				"fields": {
-				  "raw": {
-				    "type": "string",
-				    "index": "not_analyzed"                 
-			      }
-		        }   
-			  },
-			  "description": {
-			    "type": "string",
-				"analyzer": "swedish"
-			  },			  
-			  "slug": {
-			    "type": "string",
-				"index": "no"
-			  },
-			  "id": {
-			    "type": "integer",
-				"index": "no"
-			  },
-			  "vocabulary": {
-				"type": "string",
-				"index": "no"
-			  },
-			  "uri": {
-				"type": "string",
-				"index": "no"
-			  }
-			}
-		  },
-		  "timeperiod" : {
-			"type": "nested",
-			"properties" : {
-			  "start": {
-				"type": "date",
-			    "format": "date_optional_time"
-			  },
-			  "startera": {
-				"type": "nested",
-				"properties": {
-				  "value": {
-			        "type": "string",
-					"analyzer": "swedish",
-					"fields": {
-					  "raw": {
-					    "type": "string",
-				        "index": "not_analyzed"                 
-			          }
-		            }
-				  },			  
-				  "slug": {
-					"type": "string",
-					"index": "no"
-				  },
-				  "id": {
-					"type": "integer",
-					"index": "no"
-				  }
-				}
-			  },
-			  "end": {
-				"type": "date",
-			    "format": "date_optional_time"
-			  },
-			  "endera": {
-				"type": "nested",
-				"properties": {
-				  "value": {
-			        "type": "string",
-					"analyzer": "swedish",
-					"fields": {
-					  "raw": {
-					    "type": "string",
-				        "index": "not_analyzed"                 
-			          }
-		            }
-				  },			  
-				  "slug": {
-					"type": "string",
-					"index": "no"
-				  },
-				  "id": {
-					"type": "integer",
-					"index": "no"
-				  }
-				}
-			  },
-			  "ongoing": {
-				"type": "boolean"
-			  }
-			}
-		  },
-		  "collectionevent" : {
-			"type": "nested",
-			"properties": {
-			  "start": {
-				"type": "date",
-			    "format": "date_optional_time"
-			  },
-			  "end": {
-				"type": "date",
-			    "format": "date_optional_time"
-			  },
-			  "modeofcollection": {
-				"type": "nested",
-				"properties": {
-				  "value": {
-			        "type": "string",
-					"analyzer": "swedish",
-					"fields": {
-					  "raw": {
-					    "type": "string",
-				        "index": "not_analyzed"                 
-			          }
-		            }
-				  },			  
-				  "slug": {
-					"type": "string",
-					"index": "no"
-				  },
-				  "id": {
-					"type": "integer",
-					"index": "no"
-				  }
-				}
-			  }
-			}
-		  },
-		  "studydesign": {
-			"type": "nested",
-			"properties": {
-			  "value": {
-			    "type": "string",
-				"analyzer": "swedish",
-				"fields": {
-				  "raw": {
-				    "type": "string",
-				    "index": "not_analyzed"                 
-			      }
-		        }   
-			  },			  
-			  "slug": {
-			    "type": "string",
-				"index": "no"
-			  },
-			  "id": {
-			    "type": "integer",
-				"index": "no"
-			  }
-			}
-		  },
-		  "unitofanalysis": {
-			"type": "nested",
-			"properties": {
-			  "value": {
-			    "type": "string",
-				"analyzer": "swedish",
-				"fields": {
-				  "raw": {
-				    "type": "string",
-				    "index": "not_analyzed"                 
-			      }
-		        }   
-			  },			  
-			  "slug": {
-			    "type": "string",
-				"index": "no"
-			  },
-			  "id": {
-			    "type": "integer",
-				"index": "no"
-			  }
-			}
-		  },
-		  "universe": {
-			"type": "nested",
-			"properties": {
-			  "value": {
-			    "type": "string",
-				"analyzer": "swedish",
-				"fields": {
-				  "raw": {
-				    "type": "string",
-				    "index": "not_analyzed"                 
-			      }
-		        }   
-			  },			  
-			  "slug": {
-			    "type": "string",
-				"index": "no"
-			  },
-			  "id": {
-			    "type": "integer",
-				"index": "no"
-			  }
-			}
-		  },
-		  "samplingprocedure": {
-			"type": "nested",
-			"properties": {
-			  "value": {
-			    "type": "string",
-				"analyzer": "swedish",
-				"fields": {
-				  "raw": {
-				    "type": "string",
-				    "index": "not_analyzed"                 
-			      }
-		        }   
-			  },			  
-			  "slug": {
-			    "type": "string",
-				"index": "no"
-			  },
-			  "id": {
-			    "type": "integer",
-				"index": "no"
-			  }
-			}
-		  },
-		  "availabilitystatus": {
-			"type": "nested",
-			"properties": {
-			  "value": {
-			    "type": "string",
-				"analyzer": "swedish",
-				"fields": {
-				  "raw": {
-				    "type": "string",
-				    "index": "not_analyzed"                 
-			      }
-		        }   
-			  },			  
-			  "slug": {
-			    "type": "string",
-				"index": "no"
-			  },
-			  "id": {
-			    "type": "integer",
-				"index": "no"
-			  }
-			}
-		  },
-		  "homepage": {
-			"type":"nested",
-			"properties": {
-				"uri":{
-					"type": "string",
-					"index": "no"
-				},
-				"label":{
-					"type": "string",
-					"index": "no"
-				}
-			}
-		  }
-		}
-	  }
-	}
-} 
+        "guid":{
+          "type":"string",
+          "index":"no"
+        },
+        "doi":{
+          "type":"string",
+          "index":"no"
+        },
+        "slug":{
+          "type":"string",
+          "index":"no"
+        },
+        "title":{
+          "type":"string",
+          "analyzer":"swedish"
+        },
+        "alternativetitle":{
+          "type":"string",
+          "analyzer":"swedish"
+        },
+        "purpose":{
+          "type":"string",
+          "analyzer":"swedish"
+        },
+        "abstract":{
+          "type":"string",
+          "analyzer":"swedish"
+        },
+        "kindofdata":{
+          "type":"nested",
+          "properties":{
+            "value":{
+              "type":"string",
+              "analyzer":"swedish",
+              "fields":{
+                "raw":{
+                  "type":"string",
+                  "index":"not_analyzed"
+                }
+              }
+            },
+            "slug":{
+              "type":"string",
+              "index":"no"
+            },
+            "id":{
+              "type":"integer",
+              "index":"no"
+            }
+          }
+        },
+        "series":{
+          "type":"nested",
+          "properties":{
+            "title":{
+              "type":"string",
+              "analyzer":"swedish"
+            },
+            "slug":{
+              "type":"string",
+              "index":"no"
+            },
+            "id":{
+              "type":"integer",
+              "index":"no"
+            }
+          }
+        },
+        "pi":{
+          "type":"nested",
+          "properties":{
+            "name":{
+              "type":"string",
+              "analyzer":"swedish",
+              "fields":{
+                "raw":{
+                  "type":"string",
+                  "index":"not_analyzed"
+                }
+              }
+            },
+            "affiliation":{
+              "type":"string",
+              "analyzer":"swedish",
+              "fields":{
+                "raw":{
+                  "type":"string",
+                  "index":"not_analyzed"
+                }
+              }
+            },
+            "pitype":{
+              "type":"string",
+              "index":"no"
+            },
+            "role":{
+              "type":"string",
+              "index":"no"
+            },
+            "orcid":{
+              "type":"string"
+            },
+            "slug":{
+              "type":"string",
+              "index":"no"
+            },
+            "url":{
+              "type":"string",
+              "index":"no"
+            },
+            "email":{
+              "type":"string",
+              "index":"no"
+            }
+          }
+        },
+        "subject":{
+          "type":"nested",
+          "properties":{
+            "value":{
+              "type":"string",
+              "analyzer":"swedish",
+              "fields":{
+                "raw":{
+                  "type":"string",
+                  "index":"not_analyzed"
+                }
+              }
+            },
+            "description":{
+              "type":"string",
+              "analyzer":"swedish"
+            },
+            "slug":{
+              "type":"string",
+              "index":"no"
+            },
+            "id":{
+              "type":"integer",
+              "index":"no"
+            },
+            "vocabulary":{
+              "type":"string",
+              "index":"no"
+            },
+            "uri":{
+              "type":"string",
+              "index":"no"
+            }
+          }
+        },
+        "keyword":{
+          "type":"nested",
+          "properties":{
+            "value":{
+              "type":"string",
+              "analyzer":"swedish",
+              "fields":{
+                "raw":{
+                  "type":"string",
+                  "index":"not_analyzed"
+                }
+              }
+            },
+            "description":{
+              "type":"string",
+              "analyzer":"swedish"
+            },
+            "slug":{
+              "type":"string",
+              "index":"no"
+            },
+            "id":{
+              "type":"integer",
+              "index":"no"
+            },
+            "vocabulary":{
+              "type":"string",
+              "index":"no"
+            },
+            "uri":{
+              "type":"string",
+              "index":"no"
+            }
+          }
+        },
+        "timeperiod":{
+          "type":"nested",
+          "properties":{
+            "start":{
+              "type":"date",
+              "format":"date_optional_time"
+            },
+            "startera":{
+              "type":"nested",
+              "properties":{
+                "value":{
+                  "type":"string",
+                  "analyzer":"swedish",
+                  "fields":{
+                    "raw":{
+                      "type":"string",
+                      "index":"not_analyzed"
+                    }
+                  }
+                },
+                "slug":{
+                  "type":"string",
+                  "index":"no"
+                },
+                "id":{
+                  "type":"integer",
+                  "index":"no"
+                }
+              }
+            },
+            "end":{
+              "type":"date",
+              "format":"date_optional_time"
+            },
+            "endera":{
+              "type":"nested",
+              "properties":{
+                "value":{
+                  "type":"string",
+                  "analyzer":"swedish",
+                  "fields":{
+                    "raw":{
+                      "type":"string",
+                      "index":"not_analyzed"
+                    }
+                  }
+                },
+                "slug":{
+                  "type":"string",
+                  "index":"no"
+                },
+                "id":{
+                  "type":"integer",
+                  "index":"no"
+                }
+              }
+            },
+            "ongoing":{
+              "type":"boolean"
+            }
+          }
+        },
+        "collectionevent":{
+          "type":"nested",
+          "properties":{
+            "start":{
+              "type":"date",
+              "format":"date_optional_time"
+            },
+            "end":{
+              "type":"date",
+              "format":"date_optional_time"
+            },
+            "modeofcollection":{
+              "type":"nested",
+              "properties":{
+                "value":{
+                  "type":"string",
+                  "analyzer":"swedish",
+                  "fields":{
+                    "raw":{
+                      "type":"string",
+                      "index":"not_analyzed"
+                    }
+                  }
+                },
+                "slug":{
+                  "type":"string",
+                  "index":"no"
+                },
+                "id":{
+                  "type":"integer",
+                  "index":"no"
+                }
+              }
+            }
+          }
+        },
+        "studydesign":{
+          "type":"nested",
+          "properties":{
+            "value":{
+              "type":"string",
+              "analyzer":"swedish",
+              "fields":{
+                "raw":{
+                  "type":"string",
+                  "index":"not_analyzed"
+                }
+              }
+            },
+            "slug":{
+              "type":"string",
+              "index":"no"
+            },
+            "id":{
+              "type":"integer",
+              "index":"no"
+            }
+          }
+        },
+        "unitofanalysis":{
+          "type":"nested",
+          "properties":{
+            "value":{
+              "type":"string",
+              "analyzer":"swedish",
+              "fields":{
+                "raw":{
+                  "type":"string",
+                  "index":"not_analyzed"
+                }
+              }
+            },
+            "slug":{
+              "type":"string",
+              "index":"no"
+            },
+            "id":{
+              "type":"integer",
+              "index":"no"
+            }
+          }
+        },
+        "universe":{
+          "type":"nested",
+          "properties":{
+            "value":{
+              "type":"string",
+              "analyzer":"swedish",
+              "fields":{
+                "raw":{
+                  "type":"string",
+                  "index":"not_analyzed"
+                }
+              }
+            },
+            "slug":{
+              "type":"string",
+              "index":"no"
+            },
+            "id":{
+              "type":"integer",
+              "index":"no"
+            }
+          }
+        },
+        "samplingprocedure":{
+          "type":"nested",
+          "properties":{
+            "value":{
+              "type":"string",
+              "analyzer":"swedish",
+              "fields":{
+                "raw":{
+                  "type":"string",
+                  "index":"not_analyzed"
+                }
+              }
+            },
+            "slug":{
+              "type":"string",
+              "index":"no"
+            },
+            "id":{
+              "type":"integer",
+              "index":"no"
+            }
+          }
+        },
+        "availabilitystatus":{
+          "type":"nested",
+          "properties":{
+            "value":{
+              "type":"string",
+              "analyzer":"swedish",
+              "fields":{
+                "raw":{
+                  "type":"string",
+                  "index":"not_analyzed"
+                }
+              }
+            },
+            "slug":{
+              "type":"string",
+              "index":"no"
+            },
+            "id":{
+              "type":"integer",
+              "index":"no"
+            }
+          }
+        },
+        "homepage":{
+          "type":"nested",
+          "properties":{
+            "uri":{
+              "type":"string",
+              "index":"no"
+            },
+            "label":{
+              "type":"string",
+              "index":"no"
+            }
+          }
+        }
+      }
+    }
+  }
+}
