@@ -511,6 +511,23 @@
 			  }
 			}
           }		
+		},
+		"relatedstudies":{
+          "type":"nested",
+          "properties":{
+			"identifier":{
+			  "type":"string",
+			  "index":"no"
+			},
+			"title":{
+			  "type":"string",
+			  "index":"no"
+			},
+			"slug":{
+			  "type":"string",
+			  "index":"no"
+			}
+          }		
 		}
       }
     }
