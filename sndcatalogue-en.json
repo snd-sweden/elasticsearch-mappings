@@ -437,6 +437,76 @@
 			}
 		  }
 		},
+        "geographiclocation":{
+          "type":"nested",
+          "properties":{
+            "value":{
+              "type":"string",
+              "analyzer":"english",
+              "fields":{
+                "raw":{
+                  "type":"string",
+                  "index":"not_analyzed"
+                }
+              }
+            },
+            "slug":{
+              "type":"string",
+              "index":"no"
+            },
+            "id":{
+              "type":"integer",
+              "index":"no"
+            },
+			"boundingbox":{
+			  "type":"nested",
+			  "properties":{
+			    "north":{
+				  "type":"geo_point",
+			      "validate":"true"
+				},
+				"south":{
+				  "type":"geo_point",
+			      "validate":"true"
+				},
+				"east":{
+				  "type":"geo_point",
+			      "validate":"true"
+				},
+				"west":{
+				  "type":"geo_point",
+			      "validate":"true"
+				}
+			  }
+			}
+          }
+        },
+		"boundingbox":{
+		  "type":"nested",
+		  "properties":{
+		    "north":{
+		      "type":"geo_point",
+			  "validate":"true"
+		    },
+			"south":{
+			  "type":"geo_point",
+			  "validate":"true"
+			},
+			"east":{
+			  "type":"geo_point",
+			  "validate":"true"
+			},
+			"west":{
+			  "type":"geo_point",
+			  "validate":"true"
+			}
+		  }
+		},
+		"polygon":{
+		  "type":"geo_shape",
+		  "tree":"quadtree",
+		  "precision":"1m"		  
+		}
 		"dataset":{
           "type":"nested",
           "properties":{
@@ -678,6 +748,54 @@
                 }
               }
             },
+			"collectionevent":{
+              "type":"nested",
+              "properties":{
+                "start":{
+                  "type":"date",
+                  "format":"date_optional_time"
+                },
+                "end":{
+                  "type":"date",
+                  "format":"date_optional_time"
+                },
+                "modeofcollection":{
+                  "type":"nested",
+                  "properties":{
+                    "value":{
+                      "type":"string",
+                      "analyzer":"english",
+                      "fields":{
+                        "raw":{
+                          "type":"string",
+                          "index":"not_analyzed"
+                        }
+                      }
+                    },
+                    "slug":{
+                      "type":"string",
+                      "index":"no"
+                    },
+                    "id":{
+                      "type":"integer",
+                      "index":"no"
+                    }
+                  }
+                }
+              }
+            },
+			"variablecount":{
+			  "type":"integer",
+			  "index":"no"
+			},
+			"casecount":{
+			  "type":"integer",
+			  "index":"no"
+			},
+			"responserate":{
+			  "type":"integer",
+			  "index":"no"
+			},
 			"versions":{
 			  "type":"nested",
 			  "properties":{
@@ -714,7 +832,36 @@
 				  }
 				}
 			  }
-			}
+			},
+			"files":{
+		      "type":"nested",
+			  "properties":{
+				"filename":{
+				  "type":"string",
+			      "index":"no"				  
+				},
+				"label":{
+				  "type":"string",
+			      "index":"no"
+			    },
+       		    "mimetype":{
+				  "type":"string",
+				  "index":"no"
+				},
+				"uri":{
+				  "type":"string",
+			      "index":"no"
+			    },
+				"documenttype":{
+				  "type":"string",
+			      "index":"no"
+			    },
+				"language":{
+				  "type":"string",
+			      "index":"no"
+			    }
+		      }
+		    }
           }		
 		},
 		"relatedstudies":{
@@ -733,6 +880,56 @@
 			  "index":"no"
 			}
           }		
+		},
+		"publications":{
+          "type":"nested",
+          "properties":{
+			"citation":{
+			  "type":"string"
+			},
+			"uri":{
+			  "type":"nested",
+              "properties":{
+			    "uri":{
+			      "type":"string",
+			      "index":"no"
+			    },
+			    "title":{
+			       "type":"description",
+			       "index":"no"
+			    }			
+              }
+            }		
+		  }
+		},
+		"files":{
+		  "type":"nested",
+		  "properties":{
+			"filename":{
+			  "type":"string",
+			  "index":"no"
+			},
+			"label":{
+			  "type":"string",
+			  "index":"no"
+			},
+       		"mimetype":{
+			  "type":"string",
+			  "index":"no"
+			},
+			"uri":{
+			  "type":"string",
+			  "index":"no"
+			},
+			"documenttype":{
+			  "type":"string",
+			  "index":"no"
+			},
+			"language":{
+			  "type":"string",
+			  "index":"no"
+		    }
+		  }
 		}
       }
     }
