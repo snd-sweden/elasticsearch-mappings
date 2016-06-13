@@ -20,7 +20,21 @@
           "type":"string",
           "index":"no"
         },
-		"updated":{
+		"published":{
+		  "type":"nested",
+		  "properties":{
+		    "publicationdate":{
+			  "type":"date",
+		      "format":"date_optional_time",
+		      "index":"no"
+			},
+			"published":{
+			  "type":"string",
+			  "index":"no"
+			}
+		  }
+		},
+		"modified":{
 		  "type":"date",
 		  "format":"date_optional_time",
 		  "index":"no"
@@ -119,6 +133,10 @@
               "type":"string",
               "index":"no"
             },
+			"id":{
+              "type":"integer",
+              "index":"no"
+            },            
             "url":{
               "type":"string",
               "index":"no"
@@ -796,7 +814,7 @@
 			  "type":"integer",
 			  "index":"no"
 			},
-			"versions":{
+			"version":{
 			  "type":"nested",
 			  "properties":{
 			    "version":{
@@ -815,7 +833,7 @@
                   "type":"string",
                   "analyzer":"swedish",
                 },
-				"files":{
+				"file":{
 				  "type":"nested",
 				  "properties":{
 				    "label":{
@@ -833,7 +851,7 @@
 				}
 			  }
 			},
-			"files":{
+			"file":{
 		      "type":"nested",
 			  "properties":{
 				"filename":{
@@ -864,7 +882,7 @@
 		    }
           }		
 		},
-		"relatedstudies":{
+		"relatedstudy":{
           "type":"nested",
           "properties":{
 			"identifier":{
@@ -881,7 +899,7 @@
 			}
           }		
 		},
-		"publications":{
+		"publication":{
           "type":"nested",
           "properties":{
 			"citation":{
@@ -902,7 +920,7 @@
             }		
 		  }
 		},
-		"files":{
+		"file":{
 		  "type":"nested",
 		  "properties":{
 			"filename":{
