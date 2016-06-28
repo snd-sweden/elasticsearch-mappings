@@ -5,6 +5,10 @@
         "enabled":true
       },
       "properties":{
+	    "id":{
+		  "type":"integer",
+		  "index":"no"
+		},
         "identifier":{
           "type":"string"
         },
@@ -23,13 +27,13 @@
 		"published":{
 		  "type":"nested",
 		  "properties":{
-		    "publicationdate":{
+		    "publisheddate":{
 			  "type":"date",
 		      "format":"date_optional_time",
 		      "index":"no"
 			},
-			"published":{
-			  "type":"string",
+			"publishedtype":{
+			  "type":"integer",
 			  "index":"no"
 			}
 		  }
@@ -129,7 +133,7 @@
             "orcid":{
               "type":"string"
             },
-            "slug":{
+            "slug":{			
               "type":"string",
               "index":"no"
             },
@@ -477,54 +481,22 @@
               "index":"no"
             },
 			"boundingbox":{
-			  "type":"nested",
-			  "properties":{
-			    "north":{
-				  "type":"geo_point",
-			      "validate":"true"
-				},
-				"south":{
-				  "type":"geo_point",
-			      "validate":"true"
-				},
-				"east":{
-				  "type":"geo_point",
-			      "validate":"true"
-				},
-				"west":{
-				  "type":"geo_point",
-			      "validate":"true"
-				}
-			  }
-			}
-          }
+			  "type":"geo_shape",
+		      "tree":"quadtree",
+		      "precision":"25m"		  		  		    			  
+			}			  
+		  }
         },
 		"boundingbox":{
-		  "type":"nested",
-		  "properties":{
-		    "north":{
-		      "type":"geo_point",
-			  "validate":"true"
-		    },
-			"south":{
-			  "type":"geo_point",
-			  "validate":"true"
-			},
-			"east":{
-			  "type":"geo_point",
-			  "validate":"true"
-			},
-			"west":{
-			  "type":"geo_point",
-			  "validate":"true"
-			}
-		  }
+		  "type":"geo_shape",
+		  "tree":"quadtree",
+		  "precision":"25m"		  		  
 		},
 		"polygon":{
 		  "type":"geo_shape",
 		  "tree":"quadtree",
 		  "precision":"1m"		  
-		}
+		},
 		"dataset":{
           "type":"nested",
           "properties":{
@@ -539,7 +511,7 @@
 			  "type":"string",
 			  "index":"no"
 			},
-			"updated":{
+			"modified":{
 			  "type":"date",
 			  "format":"date_optional_time",
 			  "index":"no"
@@ -690,7 +662,7 @@
 			  "analyzer":"swedish"
 			},
 			"copyrightholder":{
-			  "type":"string",			  
+			  "type":"string"		  
 			},
 			"userid":{
 		      "type":"nested",
@@ -811,13 +783,13 @@
 			  "index":"no"
 			},
 			"responserate":{
-			  "type":"integer",
+			  "type":"string",
 			  "index":"no"
 			},
 			"version":{
 			  "type":"nested",
 			  "properties":{
-			    "version":{
+			    "versionnumber":{
 				  "type":"string",
 				  "index":"no"
 				},
@@ -831,13 +803,13 @@
 				},
                 "rationale":{
                   "type":"string",
-                  "analyzer":"swedish",
+                  "analyzer":"swedish"
                 },
 				"file":{
 				  "type":"nested",
 				  "properties":{
 				    "label":{
-				      "type":"string",				      
+				      "type":"string"				      
 				    },
        				"mimetype":{
 				      "type":"string",
@@ -908,12 +880,12 @@
 			"uri":{
 			  "type":"nested",
               "properties":{
-			    "uri":{
+			    "url":{
 			      "type":"string",
 			      "index":"no"
 			    },
 			    "title":{
-			       "type":"description",
+			       "type":"string",
 			       "index":"no"
 			    }			
               }
