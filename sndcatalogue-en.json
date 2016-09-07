@@ -487,6 +487,10 @@
 			}			  
 		  }
         },
+		"geographicdescription":{
+          "type":"string",
+          "analyzer":"swedish"
+        },
 		"boundingbox":{
 		  "type":"geo_shape",
 		  "tree":"quadtree",
@@ -496,6 +500,9 @@
 		  "type":"geo_shape",
 		  "tree":"quadtree",
 		  "precision":"1m"		  
+		},
+		"containsbiobank":{
+			"type":"boolean"
 		},
 		"dataset":{
           "type":"nested",
@@ -920,8 +927,31 @@
 			  "index":"no"
 		    }
 		  }
-		}
-      }
+		},
+		"contact":{
+		  "type":"nested",
+          "properties":{
+            "name":{
+              "type":"string",
+              "analyzer":"swedish",
+              "fields":{
+                "raw":{
+                  "type":"string",
+                  "index":"not_analyzed"
+                }
+              }
+            },          
+            "url":{
+              "type":"string",
+              "index":"no"
+            },
+            "email":{
+              "type":"string",
+              "index":"no"
+            }
+          }	
+		} 
+	  }
     }
   }
 }
